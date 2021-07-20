@@ -4,130 +4,88 @@ export default {
     type: 'document',
     fields: [
         {
-            name: 'name',
-            title: 'Name',
+            name: 'heading',
+            title: 'Heading',
             type: 'string',
-        },
-        {
-            name: 'mainHeading',
-            title: 'main-heading',
-            type: 'string',
+            description: 'Visible heading and main title for the post'
         },
         {
             name: 'slug',
             title: 'Slug',
             type: 'slug',
+            description: 'This text is not visible on the article itself, but used as a link to the article',
             options: {
                 source: 'name',
                 maxLength: 96,
+                slugify: input => input
+                    .toLowerCase()
+                    .replace(/\s+/g, '-')
+                    .slice(0, 200) + Math.floor(Math.random() * 100000)
             },
         },
         {
-            name: 'mainDate',
-            title: 'main-date',
-            type: 'string',
-        },
-        {
-            name: 'mainDescription',
-            title: 'main-description',
-            type: 'string'
-        },
-        {
-            name: 'mainImage',
-            title: 'main-image',
-            type: 'image'
-        },
-        {
-            name: 'blogImage',
-            title: 'blog-image',
-            type: 'image'
-        },
-        {
-            name: 'mainJob',
-            title: 'Main job',
-            default: false,
-            type: 'boolean'
-        },
-       
-        {
-            name: 'heading1',
-            title: 'Heading1',
-            type: 'string',
-        },
-        {
-            name: 'heading2',
-            title: 'Heading2',
-            type: 'string'
-        },
-        {
-            name: 'description1',
-            title: 'Description1',
-            type: 'string'
-        },
-        {
-            name: 'blogImage3',
-            title: 'blog-image3',
-            type: 'image'
-        },
-        {
-            name: 'blogImage2',
-            title: 'blog-image2',
-            type: 'image'
-        },
-        {
-            name: 'blogImage1',
-            title: 'blog-image1',
-            type: 'image'
-        },
-        {
-            name: 'miniHeading1',
-            title: 'mini-heading1',
-            type: 'string'
-        },
-        {
-            name: 'description2',
-            title: 'description2',
-            type: 'string'
-        },
-        {
-            name: 'imgCaption1',
-            title: 'imgCaption1',
-            type: 'string'
-        },
-        {
-            name: 'imgCaption2',
-            title: 'imgCaption2',
-            type: 'string'
-        },
-        {
-            name: 'miniHeading2',
-            title: 'mini-heading2',
-            type: 'string'
-        },
-        {
-            name: 'description3',
-            title: 'description3',
-            type: 'string'
-        },
-        {
-            name: 'description4',
-            title: 'description4',
-            type: 'string'
-        },
-        {
             name: 'date',
-            title: 'date',
+            title: 'Date',
+            type: 'date',
+            options: {
+                dateFormat: 'DD. MM. YYYY',
+                timeFormat: 'HH:mm',
+                timeStep: 15,
+                calendarTodayLabel: 'Today'
+            },
+            initialValue: ''
+        },
+        {
+            name: 'author',
+            title: 'Author',
+            type: 'reference',
+            to: {type: 'author'},
+        },
+        {
+            name: 'description',
+            title: 'Description',
             type: 'string'
         },
         {
-            name: 'blogDescription',
-            title: 'blog-description',
-            type: 'string'
+            name: 'image',
+            title: 'Image',
+            type: 'image',
+            options: {
+                hotspot: true,
+            }
         },
+        {
+            name: 'content',
+            title: 'Content',
+            description: 'Actual list of the paragraphs and images used in the article',
+            type: 'array',
+            of: [
+                {
+                    type: 'block',
+                    styles: [
+                        {title: 'Normal text', value: 'normal'},
+                        {title: 'Title', value: 'h2'},
+                    ]
+                },
+                {
+                    type: 'image',
+                    fields: [
+                        {
+                            type: 'text',
+                            name: 'alt',
+                            title: 'Image alternative text',
+                            options: {
+                                isHighlighted: true
+                            }
+                        }
+                    ]
+                }
+            ]
+        }
     ],
     preview: {
         select: {
-            title: 'name',
+            title: 'heading',
         },
     },
 }

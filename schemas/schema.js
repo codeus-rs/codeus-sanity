@@ -7,6 +7,7 @@ import job from './job';
 import services from './services';
 import project from './project';
 import blog from './blog';
+import author from './author';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -20,5 +21,6 @@ export default createSchema({
       project,
       services,
       blog,
+      author
   ]),
 })
