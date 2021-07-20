@@ -7,7 +7,8 @@ export default {
             name: 'heading',
             title: 'Heading',
             type: 'string',
-            description: 'Visible heading and main title for the post'
+            description: 'Visible heading and main title for the article',
+            validation: Rule => Rule.required().min(3).max(80)
         },
         {
             name: 'slug',
@@ -22,6 +23,20 @@ export default {
                     .replace(/\s+/g, '-')
                     .slice(0, 200) + Math.floor(Math.random() * 100000)
             },
+            validation: Rule => Rule.required().custom(name => {
+                if (name.current.includes(' ')) {
+                    return 'Text cannot contain white space';
+                } else {
+                    return true;
+                }
+            })
+        },
+        {
+            name: 'featured',
+            title: 'Highlight as a "featured"?',
+            description: 'Only one article can be marked as "featured" at a time',
+            default: false,
+            type: 'boolean'
         },
         {
             name: 'date',
@@ -40,11 +55,13 @@ export default {
             title: 'Author',
             type: 'reference',
             to: {type: 'author'},
+            validation: Rule => Rule.required()
         },
         {
             name: 'description',
             title: 'Description',
-            type: 'string'
+            type: 'string',
+            validation: Rule => Rule.required().min(3).max(200)
         },
         {
             name: 'image',
@@ -80,7 +97,8 @@ export default {
                         }
                     ]
                 }
-            ]
+            ],
+            validation: Rule => Rule.required()
         }
     ],
     preview: {
