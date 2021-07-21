@@ -16,16 +16,17 @@ export default {
             type: 'slug',
             description: 'This text is not visible on the article itself, but used as a link to the article',
             options: {
-                source: 'name',
+                source: 'heading',
                 maxLength: 96,
                 slugify: input => input
                     .toLowerCase()
                     .replace(/\s+/g, '-')
+                    .replace(/\?/g, '')
                     .slice(0, 200) + Math.floor(Math.random() * 100000)
             },
             validation: Rule => Rule.required().custom(name => {
-                if (name.current.includes(' ')) {
-                    return 'Text cannot contain white space';
+                if (name.current.includes(' ') || name.current.includes('?')) {
+                    return 'Text cannot contain white space or question mark';
                 } else {
                     return true;
                 }
