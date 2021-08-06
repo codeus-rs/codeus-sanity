@@ -27,6 +27,53 @@ export default {
                 hotspot:true,
             }
         },
+        {
+            name: 'title',
+            title: 'Title',
+            type: 'string'
+          },
+          {
+            name: 'subtitle1',
+            title: 'subtitle-1',
+            type: 'string'
+          },
+          {
+            name: 'subtitle2',
+            title: 'subtitle-2',
+            type: 'string'
+          },
+          {
+            name: 'quote',
+            title: 'quote',
+            type: 'string'
+          },
+          {
+            name: 'name',
+            title: 'name',
+            type: 'string'
+          },
+          {
+            name: 'position',
+            title: 'position',
+            type: 'string'
+          },
+          {
+            name: 'heading',
+            title: 'heading',
+            type: 'string'
+          },
+          {
+            name: 'benefit',
+            title: 'benefit',
+            type: 'array',
+            of: [{type: 'string'}],
+          },
+          {
+            name: 'benefitDescription',
+            title: 'benefit-description',
+            type: 'array',
+            of: [{type: 'string'}],
+          },
     ]
     
 }

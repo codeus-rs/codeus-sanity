@@ -43,6 +43,48 @@ export default {
                 hotspot:true,
             }
         },
+        {
+            name: 'title',
+            title: 'Title',
+            type: 'string'
+          },
+          {
+            name: 'subtitle',
+            title: 'subtitle',
+            type: 'string'
+          },
+          {
+            name: 'heading1',
+            title: 'heading-1',
+            type: 'string'
+          },
+          {
+            name: 'description1',
+            title: 'description-1',
+            type: 'string'
+          },
+          {
+            name: 'heading2',
+            title: 'heading-2',
+            type: 'string'
+          },
+          {
+            name: 'description2',
+            title: 'description-2',
+            type: 'string'
+          },
+          {
+            name: 'key',
+            title: 'key-differentiator',
+            type: 'array',
+            of: [{type: 'string'}],
+          },
+          {
+            name: 'keyDescription',
+            title: 'key-differentiator-description',
+            type: 'array',
+            of: [{type: 'string'}],
+          },
     ]
     
 }

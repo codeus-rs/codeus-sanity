@@ -46,7 +46,8 @@ export default {
         {
             name:"clientImage",
             title:"Client Image",
-            type:'image',
+            type:'boolean',
+            of: [{type: 'image'}],
         },
     ]
 }
