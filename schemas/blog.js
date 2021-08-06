@@ -81,8 +81,10 @@ export default {
                 {
                     type: 'block',
                     styles: [
-                        {title: 'Normal text', value: 'normal'},
                         {title: 'Title', value: 'h2'},
+                        {title: 'Heading', value: 'h3'},
+                        {title: 'Highlighted text', value: 'h5'},
+                        {title: 'Normal text', value: 'normal'},
                     ]
                 },
                 {
