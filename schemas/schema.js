@@ -11,6 +11,7 @@ import author from './author';
 import testimonials from './testimonials';
 import careers from './careers';
 import about from './about';
+import faq from './faq';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -28,5 +29,6 @@ export default createSchema({
       testimonials,
       careers,
       about,
+      faq
   ]),
 })
