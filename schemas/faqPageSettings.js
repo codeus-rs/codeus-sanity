@@ -17,16 +17,8 @@ export default {
         {
             name: 'text',
             title: 'Text',
-            type: 'array',
-            of: [
-                {
-                type: 'block',
-                styles: [
-                    {title: 'Normal', value: 'normal'},
-                ]
-                }
-            ],
-            validation: Rule => Rule.required() 
+            type: 'string',
+            validation: Rule => Rule.required().min(10)
         },
     ],
 }
